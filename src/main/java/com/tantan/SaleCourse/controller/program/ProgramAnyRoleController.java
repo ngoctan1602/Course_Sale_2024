@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/program")
-public class ProgramUserController {
+public class ProgramAnyRoleController {
     @Autowired
     private IProgramService iProgramService;
     @GetMapping("/getById")

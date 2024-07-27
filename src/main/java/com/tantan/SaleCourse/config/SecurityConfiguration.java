@@ -26,7 +26,8 @@ public class SecurityConfiguration {
     private final JwtAuthFilter jwtAuthFilter;
     private static final List<String> WHITE_LISTED_PATHS = Arrays.asList(
             "/api/v1/auth/**",
-            "/api/v1/program/**"
+            "/api/v1/program/**",
+            "/api/v1/subject/**"
     );
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -34,7 +35,6 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req ->
                         req.requestMatchers(WHITE_LISTED_PATHS.toArray(new String[0]))
-//                        req.requestMatchers("/api/v1/auth/*")
                                 .permitAll()
                                 .requestMatchers("/api/v1/admin/**").hasAuthority("ADMIN")
 //                                .requestMatchers("/api/v1/admin/**").hasAnyRole("ADMIN")
