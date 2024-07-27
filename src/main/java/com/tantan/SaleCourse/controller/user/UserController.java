@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/admin")
 public class UserController {
-    @GetMapping
+    @GetMapping("/get")
     @PreAuthorize("hasAuthority('ADMIN')")
     public String getAdmin() {
         return "Secured Endpoint :: GET - Admin controller";
