@@ -20,8 +20,9 @@ public class Topic {
     private long id;
     private String name;
     private String description;
-    @ManyToMany(mappedBy = "topics")
-    private Set<Subject> subjects;
+    @ManyToOne
+    @JoinColumn(name = "subject_id",referencedColumnName = "id")
+    private Subject subject;
     @ManyToMany(mappedBy = "topics")
     private Set<Course> courses;
     @OneToMany(mappedBy = "topic")

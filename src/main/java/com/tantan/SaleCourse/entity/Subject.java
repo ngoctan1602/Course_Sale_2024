@@ -20,9 +20,6 @@ public class Subject {
     private String description;
     @OneToMany(mappedBy = "subject")
     private Set<Course> courseSet ;
-    @ManyToMany
-    @JoinTable(name = "tbl_subject_topic",
-    joinColumns = @JoinColumn(name = "subject_id"),
-    inverseJoinColumns = @JoinColumn(name = "topic_id"))
+    @OneToMany(mappedBy = "subject")
     private Set<Topic> topics;
 }

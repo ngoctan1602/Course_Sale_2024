@@ -1,5 +1,6 @@
 package com.tantan.SaleCourse.controller.subject;
 
+import com.tantan.SaleCourse.mapper.SubjectMapper;
 import com.tantan.SaleCourse.response.baseresponse.BaseDataResponse;
 import com.tantan.SaleCourse.service.subject.ISubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class SubjectAnyRoleController {
     {
         var subject =  iSubjectService.getSubjectById(id);
         return  ResponseEntity.status(HttpStatus.OK).body(
-                new BaseDataResponse(false,HttpStatus.OK.value(),"Get subject with id = "+ id + " successfully",subject)
+                new BaseDataResponse(false,HttpStatus.OK.value(),"Get subject with id = "+ id + " successfully", SubjectMapper.INSTANCE.toResponse(subject))
         );
     }
     @GetMapping("/getAll")
