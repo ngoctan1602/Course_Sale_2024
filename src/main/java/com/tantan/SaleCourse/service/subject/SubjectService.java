@@ -41,7 +41,7 @@ public class SubjectService implements ISubjectService {
     }
 
     @Override
-    public SubjectResponse getSubjectById(long id) {
+    public Subject getSubjectById(long id) {
         Subject subject = subjectRepository.findById(id).orElse(null);
         if(null == subject)
         {
@@ -49,7 +49,7 @@ public class SubjectService implements ISubjectService {
                     new BaseDataResponse(true, HttpStatus.NOT_FOUND.value(), "Not found subject with id = "+id,null)
             );
         }
-        return SubjectMapper.INSTANCE.toResponse(subject);
+        return subject;
     }
 
     @Override

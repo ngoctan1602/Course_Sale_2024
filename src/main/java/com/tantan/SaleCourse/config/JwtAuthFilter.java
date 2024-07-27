@@ -27,7 +27,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private static final List<String> WHITE_LISTED_PATHS = Arrays.asList(
             "/api/v1/auth",
             "/api/v1/program",
-            "/api/v1/subject"
+            "/api/v1/subject",
+            "/api/v1/topic"
     );
     @Override
     protected void doFilterInternal
