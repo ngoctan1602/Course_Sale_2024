@@ -22,4 +22,6 @@ public class Subject {
     private Set<Course> courseSet ;
     @OneToMany(mappedBy = "subject")
     private Set<Topic> topics;
+    @OneToMany(mappedBy = "subject")
+    private Set<Teacher> teachers;
 }
