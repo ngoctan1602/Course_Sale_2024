@@ -38,6 +38,7 @@ public class SecurityConfiguration {
                         req.requestMatchers(WHITE_LISTED_PATHS.toArray(new String[0]))
                                 .permitAll()
                                 .requestMatchers("/api/v1/admin/**").hasAuthority("ADMIN")
+                                .requestMatchers("/api/v1/teacher/**").hasAuthority("TEACHER")
 //                                .requestMatchers("/api/v1/admin/**").hasAnyRole("ADMIN")
 //                                .requestMatchers(GET, "/crackit/v1/management/**").hasAnyAuthority(ADMIN_READ.name(), MEMBER_READ.name())
 //                                .requestMatchers(POST, "/crackit/v1/management/**").hasAnyAuthority(ADMIN_CREATE.name(), MEMBER_CREATE.name())

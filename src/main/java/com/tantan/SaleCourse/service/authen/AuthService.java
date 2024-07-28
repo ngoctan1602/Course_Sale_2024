@@ -1,6 +1,9 @@
 package com.tantan.SaleCourse.service.authen;
 
+import com.tantan.SaleCourse.entity.Role;
+import com.tantan.SaleCourse.entity.Teacher;
 import com.tantan.SaleCourse.entity.User;
+import com.tantan.SaleCourse.repository.TeacherRepository;
 import com.tantan.SaleCourse.repository.UserRepository;
 import com.tantan.SaleCourse.request.authen.LoginRequest;
 import com.tantan.SaleCourse.request.authen.RegisterRequest;
@@ -15,10 +18,12 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class AuthService {
-    private  final UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final TeacherRepository teacherRepository;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
+
     public AuthenticationResponse register(RegisterRequest registerRequest) {
         var user = User.builder()
                 .fullName(registerRequest.getFullName())
@@ -30,6 +35,19 @@ public class AuthService {
         String jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder().accessToken(jwtToken).build();
     }
+
+    public AuthenticationResponse registerTeacher(RegisterRequest registerRequest) {
+        var user = Teacher.builder()
+                .fullName(registerRequest.getFullName())
+                .email(registerRequest.getEmail())
+                .password(passwordEncoder.encode(registerRequest.getPassword()))
+                .role(Role.TEACHER)
+                .build();
+        var savedUser = teacherRepository.save(user);
+        String jwtToken = jwtService.generateToken(user);
+        return AuthenticationResponse.builder().accessToken(jwtToken).build();
+    }
+
     public AuthenticationResponse authenticate(LoginRequest request) {
         //FirstStep
         //We need to validate our request (validate whether password & username is correct)
@@ -49,6 +67,21 @@ public class AuthService {
                 )
         );
         var user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow();
+        String jwtToken = jwtService.generateToken(user);
+        return AuthenticationResponse.builder().accessToken(jwtToken).build();
+
+    }
+
+    public AuthenticationResponse authenticateTeacher(LoginRequest request) {
+
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        request.getEmail(),
+                        request.getPassword()
+                )
+        );
+        var user = teacherRepository.findByEmail(request.getEmail())
                 .orElseThrow();
         String jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder().accessToken(jwtToken).build();
