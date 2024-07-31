@@ -3,6 +3,7 @@ package com.tantan.SaleCourse.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -23,5 +24,5 @@ public class Subject {
     @OneToMany(mappedBy = "subject")
     private Set<Topic> topics;
     @OneToMany(mappedBy = "subject")
-    private Set<Teacher> teachers;
+    private List<Teacher> teachers;
 }

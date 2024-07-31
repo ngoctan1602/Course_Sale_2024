@@ -1,5 +1,6 @@
 package com.tantan.SaleCourse.controller.program;
 
+import com.tantan.SaleCourse.mapper.ProgramMapper;
 import com.tantan.SaleCourse.response.baseresponse.BaseDataResponse;
 import com.tantan.SaleCourse.service.program.IProgramService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class ProgramAnyRoleController {
     {
         var program =  iProgramService.getProgramById(id);
         return  ResponseEntity.status(HttpStatus.OK).body(
-                new BaseDataResponse(false,HttpStatus.OK.value(),"Get program with id = "+ id + " successfully",program)
+                new BaseDataResponse(false,HttpStatus.OK.value(),"Get program with id = "+ id + " successfully", ProgramMapper.INSTANCE.toDTO(program))
         );
     }
     @GetMapping("/getAll")

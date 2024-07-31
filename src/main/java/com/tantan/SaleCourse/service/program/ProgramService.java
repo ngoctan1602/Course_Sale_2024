@@ -50,14 +50,14 @@ public class ProgramService implements IProgramService {
     }
 
     @Override
-    public ProgramDTO getProgramById(long id) {
+    public Program getProgramById(long id) {
         Program program = programRepository.findById(id).orElse(null);
         if (null == program) {
             throw new CustomException(new BaseDataResponse(
                     false, HttpStatus.NOT_FOUND.value(), "Not found program with id" + id, null
             ));
         }
-        return ProgramMapper.INSTANCE.toDTO(program);
+        return program;
 
     }
 

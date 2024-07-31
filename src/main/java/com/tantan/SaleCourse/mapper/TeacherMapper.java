@@ -6,6 +6,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper
 public interface TeacherMapper {
     TeacherMapper INSTANCE = Mappers.getMapper(TeacherMapper.class);
@@ -13,4 +15,6 @@ public interface TeacherMapper {
     @Mapping(source ="email",target = "email")
     @Mapping(source ="fullName",target = "fullName")
     TeacherResponse toResponse(Teacher teacher);
+
+    List<TeacherResponse> toListResponse(List<Teacher> teachers);
 }

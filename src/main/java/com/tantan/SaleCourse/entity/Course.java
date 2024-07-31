@@ -18,8 +18,9 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private int price;
-    private Date duration;
+    private int duration; // how long duration ( day)
     private String description;
+    private String name;
     @ManyToOne
     @JoinColumn(name = "program_id",referencedColumnName = "id")
     private Program program;
@@ -35,4 +36,7 @@ public class Course {
     private Set<Lesson> lessons;
     @OneToMany(mappedBy = "course")
     private Set<Test> tests;
+    @ManyToOne
+    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
+    private Teacher teacher;
 }
