@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "tbl_teacher")
@@ -30,6 +31,9 @@ public class Teacher implements UserDetails {
     @ManyToOne
     @JoinColumn(name = "subject_id",referencedColumnName = "id")
     private Subject subject;
+    @OneToMany(mappedBy = "teacher")
+    private Set<Course> courses;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));

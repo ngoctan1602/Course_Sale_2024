@@ -1,5 +1,6 @@
 package com.tantan.SaleCourse.service.topic;
 
+import com.tantan.SaleCourse.entity.Subject;
 import com.tantan.SaleCourse.entity.Topic;
 import com.tantan.SaleCourse.exception.CustomException;
 import com.tantan.SaleCourse.mapper.TopicMapper;
@@ -28,9 +29,7 @@ public class TopicService implements ITopicService {
         try {
             topicRepository.save(topic);
             return true;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
     }
@@ -38,10 +37,9 @@ public class TopicService implements ITopicService {
     @Override
     public Topic getTopicById(long id) {
         Topic topic = topicRepository.findById(id).orElse(null);
-        if (topic==null)
-        {
+        if (topic == null) {
             throw new CustomException(
-                    new BaseDataResponse(true, HttpStatus.NOT_FOUND.value(), "Not found topic with id = "+id,null)
+                    new BaseDataResponse(true, HttpStatus.NOT_FOUND.value(), "Not found topic with id = " + id, null)
             );
         }
         return topic;

@@ -10,6 +10,6 @@ import java.util.Optional;
 public interface IProgramService {
     public boolean createNewProgram(ProgramRequest programRequest);
     public boolean updateProgram();
-    public ProgramDTO getProgramById(long id);
+    public Program getProgramById(long id);
     public List<ProgramDTO> getAllProgram();
 }
