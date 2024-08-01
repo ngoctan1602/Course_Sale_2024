@@ -31,8 +31,10 @@ public class Teacher implements UserDetails {
     @ManyToOne
     @JoinColumn(name = "subject_id",referencedColumnName = "id")
     private Subject subject;
-    @OneToMany(mappedBy = "teacher")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "teacher")
     private Set<Course> courses;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "teacher")
+    private Set<Lesson> lessons;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

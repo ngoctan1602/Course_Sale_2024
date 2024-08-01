@@ -52,6 +52,18 @@ public class CourseService implements ICourseService {
         }
     }
 
+    @Override
+    public Course findCourseById(long idCourse) {
+        Course course = courseRepository.findById(idCourse).orElse(null);
+        if(course == null)
+        {
+            throw  new CustomException(
+                    new BaseDataResponse(true,HttpStatus.NOT_FOUND.value(), "Not found course with id = "+idCourse,null)
+            );
+        }
+        return course;
+    }
+
     private Set<Topic> setTopicForCourse(Subject subject, Set<Long> idTopics) {
         Set<Topic> topics = new HashSet<>();
         for (Long idTopic : idTopics) {

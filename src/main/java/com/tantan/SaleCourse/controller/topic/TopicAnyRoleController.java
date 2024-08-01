@@ -1,7 +1,6 @@
 package com.tantan.SaleCourse.controller.topic;
 
 import com.tantan.SaleCourse.mapper.TopicMapper;
-import com.tantan.SaleCourse.request.topic.TopicRequest;
 import com.tantan.SaleCourse.response.baseresponse.BaseDataResponse;
 import com.tantan.SaleCourse.service.topic.ITopicService;
 import org.springframework.beans.factory.annotation.Autowired;
