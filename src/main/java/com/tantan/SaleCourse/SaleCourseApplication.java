@@ -1,6 +1,5 @@
 package com.tantan.SaleCourse;
 
-import com.tantan.SaleCourse.entity.Program;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
