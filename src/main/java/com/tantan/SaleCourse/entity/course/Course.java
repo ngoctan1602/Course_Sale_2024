@@ -1,10 +1,11 @@
-package com.tantan.SaleCourse.entity;
+package com.tantan.SaleCourse.entity.course;
 
+import com.tantan.SaleCourse.entity.*;
 import com.tantan.SaleCourse.entity.test.Test;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Date;
+import java.util.List;
 import java.util.Set;
 
 @Table(name = "tbl_course")
@@ -39,4 +40,6 @@ public class Course {
     @ManyToOne
     @JoinColumn(name = "teacher_id", referencedColumnName = "id")
     private Teacher teacher;
+    @OneToMany(mappedBy = "course")
+    private Set<Enroll> enrolls;
 }

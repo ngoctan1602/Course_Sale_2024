@@ -1,6 +1,6 @@
 package com.tantan.SaleCourse.mapper;
 
-import com.tantan.SaleCourse.entity.Course;
+import com.tantan.SaleCourse.entity.course.Course;
 import com.tantan.SaleCourse.request.course.CourseRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

@@ -3,12 +3,14 @@ package com.tantan.SaleCourse.service.cloudinary;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import jakarta.annotation.Resource;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 public class CloudServices implements ICloudServices {
@@ -18,14 +20,6 @@ public class CloudServices implements ICloudServices {
     @Override
     public String uploadFile(MultipartFile multipartFile) {
         try {
-//            HashMap<Object, Object> options = new HashMap<>();
-//            options.put("folder",folderName);
-//            options.put("resource_type", type);
-//            if (multipartFile != null) {
-//                Map<?, ?> uploadedFile = cloudinary.uploader().upload(multipartFile.getBytes(), options);
-//                return (String) uploadedFile.get("secure_url");
-//            }
-//            return null;
             return (String) cloudinary.uploader().upload(multipartFile.getBytes(), ObjectUtils.emptyMap()).get("secure_url");
         } catch (IOException e) {
             e.printStackTrace();

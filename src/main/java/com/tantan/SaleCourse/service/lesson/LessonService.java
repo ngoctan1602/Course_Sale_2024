@@ -1,6 +1,6 @@
 package com.tantan.SaleCourse.service.lesson;
 
-import com.tantan.SaleCourse.entity.Course;
+import com.tantan.SaleCourse.entity.course.Course;
 import com.tantan.SaleCourse.entity.Lesson;
 import com.tantan.SaleCourse.entity.Teacher;
 import com.tantan.SaleCourse.entity.Topic;

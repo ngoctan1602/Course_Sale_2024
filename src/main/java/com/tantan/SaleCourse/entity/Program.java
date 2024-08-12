@@ -1,9 +1,9 @@
 package com.tantan.SaleCourse.entity;
 
+import com.tantan.SaleCourse.entity.course.Course;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Date;
 import java.util.Set;
 
 @Entity

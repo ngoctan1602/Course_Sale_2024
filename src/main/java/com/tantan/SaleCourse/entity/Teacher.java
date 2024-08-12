@@ -1,5 +1,6 @@
 package com.tantan.SaleCourse.entity;
 
+import com.tantan.SaleCourse.entity.course.Course;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
