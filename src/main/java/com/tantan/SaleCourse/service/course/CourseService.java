@@ -1,6 +1,7 @@
 package com.tantan.SaleCourse.service.course;
 
 import com.tantan.SaleCourse.entity.*;
+import com.tantan.SaleCourse.entity.course.Course;
 import com.tantan.SaleCourse.exception.CustomException;
 import com.tantan.SaleCourse.mapper.CourseMapper;
 import com.tantan.SaleCourse.repository.CourseRepository;

@@ -1,6 +1,6 @@
 package com.tantan.SaleCourse.service.lesson;
 
-import com.tantan.SaleCourse.entity.Course;
+import com.tantan.SaleCourse.entity.course.Course;
 import com.tantan.SaleCourse.entity.Lesson;
 import com.tantan.SaleCourse.entity.Teacher;
 import com.tantan.SaleCourse.entity.Topic;
@@ -15,11 +15,8 @@ import com.tantan.SaleCourse.service.topic.ITopicService;
 import com.tantan.SaleCourse.util.GetTeacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.concurrent.CompletableFuture;
 
 @Service
 public class LessonService implements ILessonService {

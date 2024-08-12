@@ -1,12 +1,11 @@
 package com.tantan.SaleCourse.entity;
 
+import com.tantan.SaleCourse.entity.course.Course;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.sql.Date;
 
 @Table(name = "tbl_lesson")
 @Entity

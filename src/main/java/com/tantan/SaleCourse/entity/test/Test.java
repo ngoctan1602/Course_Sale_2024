@@ -1,6 +1,6 @@
 package com.tantan.SaleCourse.entity.test;
 
-import com.tantan.SaleCourse.entity.Course;
+import com.tantan.SaleCourse.entity.course.Course;
 import com.tantan.SaleCourse.entity.Topic;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,9 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Date;
 import java.util.List;
-import java.util.Set;
 
 @Table(name = "tbl_test")
 @Entity

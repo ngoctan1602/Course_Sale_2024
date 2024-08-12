@@ -1,5 +1,6 @@
 package com.tantan.SaleCourse.entity;
 
+import com.tantan.SaleCourse.entity.course.Enroll;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,6 +12,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name = "tbl_user")
 @Data
@@ -26,6 +29,8 @@ public class User implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<Enroll> enroll;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));

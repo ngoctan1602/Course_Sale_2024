@@ -1,5 +1,6 @@
 package com.tantan.SaleCourse.entity;
 
+import com.tantan.SaleCourse.entity.course.Course;
 import com.tantan.SaleCourse.entity.test.Test;
 import jakarta.persistence.*;
 import lombok.*;
