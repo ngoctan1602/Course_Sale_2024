@@ -1,6 +1,7 @@
 package com.tantan.SaleCourse.entity;
 
 import com.tantan.SaleCourse.entity.course.Enroll;
+import com.tantan.SaleCourse.entity.lesson.Progress;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,6 +32,8 @@ public class User implements UserDetails {
     private Role role;
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Enroll> enroll;
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<Progress> progressSet;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));

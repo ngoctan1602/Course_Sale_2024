@@ -32,7 +32,7 @@ public class EnrollService implements IEnrollService {
 
     @Override
     @Transactional
-    public boolean createNewEnroll(long id) {
+    public boolean createNewEnroll(long id,Payment payment) {
         Course course = iCourseService.findCourseById(id);
         User user = new GetUser().getUser();
         boolean b = this.checkCourseInUser(course, user);
@@ -43,7 +43,7 @@ public class EnrollService implements IEnrollService {
         }
         Enroll enroll = Enroll.builder()
                 .dateEnroll(new Date(System.currentTimeMillis()))
-                .payment(Payment.CASH)
+                .payment(payment)
                 .checkout(Status.CREATED)
                 .user(user)
                 .course(course)

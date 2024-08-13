@@ -80,4 +80,18 @@ public class LessonService implements ILessonService {
         }
 
     }
+
+    @Override
+    public Lesson findById(long idLesson) {
+        Lesson lesson = lessonRepository.findById(idLesson).orElse(null);
+        if (lesson==null)
+        {
+            throw new CustomException(
+                    new BaseDataResponse(
+                            true,HttpStatus.NOT_FOUND.value(), "Not found with lesson has id = "+idLesson,null
+                    )
+            );
+        }
+        return lesson;
+    }
 }
