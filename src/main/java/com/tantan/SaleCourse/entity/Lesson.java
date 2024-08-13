@@ -1,11 +1,14 @@
 package com.tantan.SaleCourse.entity;
 
 import com.tantan.SaleCourse.entity.course.Course;
+import com.tantan.SaleCourse.entity.lesson.Progress;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Table(name = "tbl_lesson")
 @Entity
@@ -31,4 +34,6 @@ public class Lesson {
     @ManyToOne
     @JoinColumn(name = "teacher_id",referencedColumnName = "id")
     private Teacher teacher;
+    @OneToMany(mappedBy = "lesson")
+    private Set<Progress> progressSet;
 }

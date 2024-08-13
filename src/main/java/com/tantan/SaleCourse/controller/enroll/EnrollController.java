@@ -1,4 +1,5 @@
 package com.tantan.SaleCourse.controller.enroll;
+import com.tantan.SaleCourse.entity.payment.Payment;
 import com.tantan.SaleCourse.response.baseresponse.BaseDataResponse;
 import com.tantan.SaleCourse.service.enroll.IEnrollService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class EnrollController {
     @PreAuthorize("hasAuthority('USER')")
     public ResponseEntity<BaseDataResponse> createNewCourse(@RequestParam long idCourse)
     {
-       iEnrollService.createNewEnroll(idCourse);
+       iEnrollService.createNewEnroll(idCourse, Payment.CASH);
         return  ResponseEntity.status(HttpStatus.OK).body(
                 new BaseDataResponse(false,HttpStatus.OK.value(),"user enroll course successfully",null)
         );
