@@ -25,6 +25,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
     private static final List<String> WHITE_LISTED_PATHS = Arrays.asList(
+            "/swagger-ui.html",
             "/api/v1/auth",
             "/api/v1/program",
             "/api/v1/subject",

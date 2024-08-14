@@ -66,7 +66,7 @@ public class EnrollService implements IEnrollService {
         return false;
     }
 
-    private boolean checkCourseInUser(Course course, User user) {
+    public boolean checkCourseInUser(Course course, User user) {
         // return true if enroll expire after now => user can not enroll course
         List<Enroll> enrolls = enrollRepository.findByUserAndCourse(user, course);
         for (Enroll enroll : enrolls) {
